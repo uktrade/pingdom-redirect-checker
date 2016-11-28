@@ -1,1 +1,1 @@
-# pingdom-redirect-checker
+# pingdom-link-checker
