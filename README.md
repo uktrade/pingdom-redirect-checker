@@ -1,0 +1,1 @@
+# pingdom-redirect-checker
