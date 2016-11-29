@@ -25,7 +25,7 @@ class run_check(object):
 
 	def run(self):
 		""" Method that runs forever """
-		check_log_url = "https://pingdom-link-checker.ukti.io/redirectlogs.html"
+		check_log_url = "https://pingdom-link-checker.herokuapp.com/logs.html"
 
 		while True:
 		
@@ -39,7 +39,7 @@ class run_check(object):
 			redirect_status = True
 			t0 = time.time()
 
-			with open('app/templates/redirectlogs.html','w') as out:
+			with open('app/templates/logs.html','w') as out:
 				out.write ('{}\n{}\n{}\n{}\n'.format('<html>','<body>','<h1>Redirect check - logs</h1>','<p>'))
 
 
@@ -49,14 +49,14 @@ class run_check(object):
 					response_code = self.get_url_nofollow(current_url)		
 					print "checking URL: %s\trespose: %d" % (current_url, response_code)
 
-					with open('app/templates/redirectlogs.html','a') as out:
+					with open('app/templates/logs.html','a') as out:
 						out.write ('{}\t\t{}{}{}\n'.format(current_url,' -- Response: ',response_code,'<br/>'))		
 					
 					if (response_code != 200 ):
 						redirect_status = False
 
 
-			with open('app/templates/redirectlogs.html','a') as out:
+			with open('app/templates/logs.html','a') as out:
 				out.write ('{}\n{}\n{}\n{}\n'.format('--  All Sites Checked --','</p>','</body>','</html>'))
 
 
