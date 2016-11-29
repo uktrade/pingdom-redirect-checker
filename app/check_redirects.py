@@ -45,16 +45,15 @@ class run_check(object):
 
 			for current_url in url_contents:
 		
-				response_code = self.get_url_nofollow(current_url)		
-				print "checking URL: %s\trespose: %d" % (current_url, response_code)
+				if not current_url.startswith("#"):
+					response_code = self.get_url_nofollow(current_url)		
+					print "checking URL: %s\trespose: %d" % (current_url, response_code)
 
-					#print "%s" % current_url
-				with open('app/templates/redirectlogs.html','a') as out:
-					out.write ('{}\t\t{}{}{}\n'.format(current_url,' -- Response: ',response_code,'<br/>'))
+					with open('app/templates/redirectlogs.html','a') as out:
+						out.write ('{}\t\t{}{}{}\n'.format(current_url,' -- Response: ',response_code,'<br/>'))		
 					
-				
-				if (response_code != 200 ):
-					redirect_status = False
+					if (response_code != 200 ):
+						redirect_status = False
 
 
 			with open('app/templates/redirectlogs.html','a') as out:
