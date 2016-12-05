@@ -66,6 +66,7 @@ class run_check(object):
 			if ( redirect_status == False ):
 				with open('app/templates/check.xml','w') as out:
 					xml_out_3 = "<status>Redirect Falied check logs - " + check_log_url + "</status>"
+					#xml_out_3 = "<status XML-LINK=\"LINK\" HREF=\"https://pingdom-redirect-checker.ukti.io/logs.html\">Logs Link</status>"
 					xml_out_4 = "<response_time>%.2f</response_time>" % total_time
 					out.write('{}\n{}\n{}\n{}\n{}\n'.format(xml_out_1,xml_out_2,xml_out_3,xml_out_4,xml_out_5))
 
