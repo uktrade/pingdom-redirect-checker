@@ -57,7 +57,7 @@ class RunCheck(object):
 			xml_out_5 = "</pingdom_http_custom_check>"
 
 			#url_contents = [url_content.rstrip('\n') for url_content in open('url_list')]
-
+			timestr = time.strftime(" ...Actually Returned @ Time Of Failure: %d/%m/%Y-%H:%M:%S")
 			redirect_status = True
 			t0 = time.time()
 
@@ -78,9 +78,13 @@ class RunCheck(object):
 					# 	redirect_status = False
 					if response_url != status[0]:
 						redirect_status = False
-						status[1] = response_url
+						#status[1] = response_url + timestr
+
 						with open('app/templates/logs.html', 'a') as out:
 							out.write('{}{}{}{}{}{}{}{}{}\n'.format('Source: ',current_url ,'    Expected result: ',status[0] ,'    Actual result: ',response_url ,' -- Result: ', 'BAD', '<br/>'))
+
+						if (status[1] == 'OK'):
+							status[1] = response_url + timestr
 
 					if response_url == status[0]:
 						status[1] = "OK"
@@ -118,7 +122,7 @@ class RunCheck(object):
 								out.write('{}\n'.format("Expected ..."))
 								for x in value:
 									out.write('{}\n'.format(x))
-								out.write('{}\n'.format("...Actually Returned"))
+								#out.write('{}\n'.format("...Actually Returned"))
 								out.write('{}{}{}\n'.format("</", key[7:].replace('/','-'), ">"))
 
 					out.write('{}\n'.format("</status>"))
