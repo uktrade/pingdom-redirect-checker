@@ -66,7 +66,7 @@ class RunCheck(object):
 
 			for current_url, status in d.iteritems():
 
-					response_url = self.get_url_nofollow(current_url)
+					response_url = str(self.get_url_nofollow(current_url))
 					if response_url[-1] == '/':
 						response_url = response_url[:-1]
 					print "Checking URL: %s\tRespose: %s" % (current_url, response_url)
