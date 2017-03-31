@@ -11,7 +11,8 @@ http://www.great.gov.uk/export,https://www.exportingisgreat.gov.uk
 http://www.great.gov.uk/export/new,https://www.exportingisgreat.gov.uk/new
 http://www.great.gov.uk/export/regular,https://www.exportingisgreat.gov.uk/regular
 http://www.great.gov.uk/export/occasional,https://www.exportingisgreat.gov.uk/occasional
-http://export.great.gov.uk,https://www.exportingisgreat.gov.uk
+#redirect removed as no longer required, but at some point soon the redirect will go in the other direction.
+#http://export.great.gov.uk,https://www.exportingisgreat.gov.uk
 http://www.great.gov.uk/export/opportunities,https://opportunities.export.great.gov.uk
 http://www.great.gov.uk/trade,https://trade.great.gov.uk
 http://www.great.gov.uk/export/find-a-buyer,https://find-a-buyer.export.great.gov.uk
