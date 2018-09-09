@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pingdom_http_custom_check>
+<status>
+{% if is_ok %}
+	OK
+{% else %}
+	{% for current_url in url_list %}
+		<b>{% if current_url.enable == True and current_url.broken_redirect == True %}
+				<u>Source Url: {{ current_url.site_url }}</u>
+				<p>Target: <font color="#000099">{{ current_url.target_url }}</font></p>
+				<p>Actual Target: <font color="#990000">{{ current_url.actual_target }}</font></p>
+			{% endif %}</b>
+	{% endfor %}
+{% endif %}
+</status>
+<response_time>{{ response_time }}</response_time>
+</pingdom_http_custom_check>
