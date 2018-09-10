@@ -9,7 +9,7 @@ class Urllist(models.Model):
     target_url = models.URLField(default="")
     enable = models.BooleanField(default=True)
     broken_redirect = models.BooleanField(default=False)
-    actual_target = models.URLField(default="")
+    actual_target = models.URLField(default=None, blank=True, null=True)
     slack_sent = models.BooleanField(default=False)
 
     def __str__(self):

@@ -18,7 +18,7 @@ class Command(BaseCommand):
             current_item_pos += 1
             response_url = str(self.get_url_nofollow(current_url.site_url))
             if response_url == current_url.target_url:
-                Urllist.objects.filter(id=current_item_pos).update(broken_redirect=False, actual_target="")
+                Urllist.objects.filter(id=current_item_pos).update(broken_redirect=False, actual_target=None)
             else:
                 # import pdb; pdb.set_trace()
                 print ("Actual url: ", response_url)
@@ -31,6 +31,8 @@ class Command(BaseCommand):
     def get_url_nofollow(self, url):
 
         response = urllib.request.urlopen(url)
+        if response.url[-1] == '/':
+            response.url = response.url[:-1]
         #import pdb; pdb.set_trace()
         #code = response.getcode()
         #response_url = response.geturl()
