@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand, CommandError
 import subprocess
 import time, os, urllib.request
 
-from checkredirects.models import Urllist, Responsetime
+from check_redirects.models import Urllist, Responsetime
 
 class Command(BaseCommand):
     def handle(self, *args, **options):

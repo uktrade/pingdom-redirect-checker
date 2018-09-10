@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from checkredirects import views
+from check_redirects import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('checkredirects.urls')),
+    url(r'^', include('check_redirects.urls')),
 ]
