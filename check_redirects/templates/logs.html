@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html>
+<head>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static "css/scrapesites.css" %}">
+	<title>Link check - logs</title>
+</head>
+<body>
+	<div class ="page-header">
+		<h1>Redirect check - logs</h1>
+	</div>
+	<div class ="page-body">
+		<p>
+		{% if url_list %}
+	    	{% for current_url in url_list %}
+	    		{% if current_url.enable %}
+		        	<h2>
+		        		{{ current_url.site_url }} - Supported by: {{ current_url.team }} - <span class=
+		        		{% if current_url.broken_redirect %}FAILED
+		        			{% else %}GOOD
+		        		{% endif %}>
+		        		{% if current_url.broken_redirect %}FAILED
+		        			{% else %}GOOD
+		        		{% endif %}</span>
+		       		</h2>
+					{% if current_url.broken_redirect %}
+								<h3>Required Target: {{ current_url.target_url }}</h3>
+								<h4>Actual Target: {{ current_url.actual_target }}</h4>
+					{% endif %}
+				{% endif %}
+	    	{% endfor %}
+		{% endif %}
+		</p>
+	</div>
+	<div class ="page-footer">
+		<h5><a href="/admin">WebOps ___ </a></h5>
+	</div>
+</body>
+</html>
