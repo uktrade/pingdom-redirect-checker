@@ -3,6 +3,6 @@ Django== 2.2.24
 psycopg2==2.8.2
 psycopg2-binary==2.8.2
 pytz==2018.4
-lxml==4.6.3
+lxml==4.6.5
 dj-database-url==0.4.2
 python-dotenv==0.9.1
